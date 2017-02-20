@@ -1,0 +1,17 @@
+{
+  "name": "microwave",
+  "version": "1.0.0",
+  "description": "Microwave Framework",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohole/Microwave.git"
+  },
+  "author": "Mohole",
+  "license": "MIT",
+  "homepage": "https://github.com/mohole/Microwave#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
