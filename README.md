@@ -1,2 +1,2 @@
 # Microwave
-Front-end framework made by Mohole School studente
+Front-end framework made by Mohole School students.
