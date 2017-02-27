@@ -2,6 +2,7 @@
 @import 'variables.less';
 @import 'mixins/mixin.less';
 
+
 .col-den (@max) when (@max <= @max-grid-col) {
     .col-num (@i,@max) when (@i <= @max) {
         .col-@{name}-@{i}-@{max} {
@@ -14,8 +15,9 @@
     .col-den(@max+1);
 }
 
-
 .for-each(@col-names);
-.-each(@name) {
-    .col-den (1);
+.-each(@name) when not (@name = xxs) {
+    @media only screen and (min-width: ~'@{min-@{name}-width}') {
+        .col-den (1);
+    }
 }
