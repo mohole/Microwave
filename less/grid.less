@@ -1,23 +1,38 @@
-// out: ../dist/css/styles.css, sourcemap: true, compress: false
+// out: ../dist/css/styles.css, sourcemap: false, compress: false
 @import 'variables.less';
 @import 'mixins/mixin.less';
 
 
-.col-den (@max) when (@max <= @max-grid-col) {
-    .col-num (@i,@max) when (@i <= @max) {
-        .col-@{name}-@{i}-@{max} {
-            @w:(100/@max)*@i;
-            width: ~"@{w}%";
+.col-den (@max,@nome:xxs,@full:true) when (@max <= @max-grid-col) {
+    .col-num (@i,@max) when (@i <= @max) and (@full = true){
+        .col-@{nome}-@{i}-@{max}{
+            width:100%;
+            .col-props(@padding);
         }
+
         .col-num(@i + 1,@max);
     }
+    .col-num (@i,@max) when (@i <= @max) and (@full = false){
+        .col-@{nome}-@{i}-@{max}{
+            @w:(100/@max)*@i;
+            width: ~"@{w}%";
+            .col-props(@padding);
+        }
+
+        .col-num(@i + 1,@max);
+    }
+
+
     .col-num (@i:1,@max);
-    .col-den(@max+1);
+    .col-den(@max+1,@nome,@full);
 }
+
+.col-den(1,xxs,false);
 
 .for-each(@col-names);
 .-each(@name) when not (@name = xxs) {
+    .col-den(1,@name);
     @media only screen and (min-width: ~'@{min-@{name}-width}') {
-        .col-den (1);
+        .col-den (1,@name,false);
     }
 }
