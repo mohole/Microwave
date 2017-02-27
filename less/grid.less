@@ -1,16 +1,21 @@
 // out: ../dist/css/styles.css, sourcemap: true, compress: false
-@maxCol:20;
-@max:1;
+@import 'variables.less';
+@import 'mixins/mixin.less';
 
-.span-col (@max) when (@max <= @maxCol) {
-    .span-loop (@i,@max) when (@i <= @max) {
-        .span-@{i}-@{max} {
+.col-den (@max) when (@max <= @max-grid-col) {
+    .col-num (@i,@max) when (@i <= @max) {
+        .col-@{name}-@{i}-@{max} {
             @w:(100/@max)*@i;
             width: ~"@{w}%";
         }
-        .span-loop(@i + 1,@max);
+        .col-num(@i + 1,@max);
     }
-    .span-loop (@i:1,@max);
-    .span-col(@max+1);
+    .col-num (@i:1,@max);
+    .col-den(@max+1);
 }
-.span-col (@max);
+
+
+.for-each(@col-names);
+.-each(@name) {
+    .col-den (1);
+}
