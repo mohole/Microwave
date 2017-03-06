@@ -1,0 +1,25 @@
+
+//min-width media queries
+$min-xs-width:381px;
+$min-s-width:576px;
+$min-m-width:768px;
+$min-l-width:992px;
+$min-xl-width:1200px;
+$min-xxl-width:1920px;
+
+$col-names: xxs, xs, s, m, l, xl, xxl;
+
+//width container
+$container-w-xxs:100%;
+$container-w-xs:$container-w-xxs;
+$container-w-s:$container-w-xs;
+$container-w-m:750px;
+$container-w-l:960px;
+$container-w-xl:1170px;
+$container-w-xxl:1900px;
+
+$max-grid-col:20;
+
+
+//proprietà colonne
+$padding:15px;
