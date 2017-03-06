@@ -1,0 +1,60 @@
+// out: ../dist/css/styles.css, sourcemap: false, compress: false
+//min-width media queries
+
+$min-xs-width:381px;
+$min-s-width:576px;
+$min-m-width:768px;
+$min-l-width:992px;
+$min-xl-width:1200px;
+$min-xxl-width:1920px;
+
+$col-names: xxs, xs, s, m, l, xl, xxl;
+
+//width container
+$container-w-xxs:100%;
+$container-w-xs:$container-w-xxs;
+$container-w-s:$container-w-xs;
+$container-w-m:750px;
+$container-w-l:960px;
+$container-w-xl:1170px;
+$container-w-xxl:1900px;
+
+$max-grid-col:20;
+
+// COLORI
+$black: #040303 !default;
+
+$white: #ffffff !default;
+
+$body-background: $white !default;
+
+$body-font-color: $black !default;
+
+
+$microwawe-palette-cold: (
+  lightgreen: #E5FCC2,
+  green: #9DE0AD,
+  aquablue: #45ADA8,
+  darkblue:  #547980,
+  black: #594F4f,
+) !default;
+
+$microwawe-palette-hot: (
+  orange: #F8B195,
+  red: #e22438,
+  purple: #C06C84,
+  darkpurple: #6C5B7B,
+  blue:#355C7D,
+  black: #594F4f,
+) !default;
+
+
+//bottoni
+$border-radius: 2px;
+$btn-padding: 11px 14px; 
+$btn-padding-l: 13px 25px;
+$btn-padding-s: 7px 10px;
+
+
+
+

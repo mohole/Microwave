@@ -40,3 +40,5 @@ Thumbs.db
 node_modules
 bower_components
 yarn.lock
+less
+dist/old_css
