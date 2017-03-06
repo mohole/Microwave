@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+
+$font-family: 'Lato', Arial, sans-serif  ;
+
+$base-font: 16px  ;
+
+body{
+  font-size: $base-font;
+  line-height: 1.2;
+  color: $black;
+  background-color: $white;
+}
+
+h1 {
+    font-size: $base-font*3;
+}
+h2 {
+    font-size: $base-font+24px;
+}
+h3 {
+    font-size: $base-font+19px;
+}
+h4{
+  font-size: $base-font+12px;
+}
+h5{
+  font-size: $base-font+8px;
+}
+h6{
+  font-size: $base-font+4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family  ;
+  color: $black  ;
+  font-weight: bold  ;
+}
+
+p,
+span,
+ul,
+ol,
+li,
+a{
+  font-family: $font-family  ;
+  color: $black  ;
+  font-weight: regular  ;
+}
