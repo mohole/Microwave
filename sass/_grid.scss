@@ -1,1 +1,68 @@
- 
+$max:20;
+$min:1;
+$widths:();
+$arr:();
+
+// $widths:(5,10,15,20,50);
+@function contains($list,$var) {
+    @return (false == index($list, $var));
+}
+
+@function map-set($map, $key, $value) {
+  $new: ($key: $value);
+  @return map-merge($map, $new);
+}
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+$j:0;
+$maxDen:20;
+
+@each $name in $col-names{
+  @for $y from 1 to $maxDen+1{
+  @for $i from $min to $y{
+    //$w:100 / $max * $i;
+    //$arr-#{$w}: append(.col-#{$name}-#{$i}-#{$max}, $arr-#{$w});
+    $currWidth:100 / $y * $i;
+    @if((index($widths,$currWidth))==null){
+    $j:$j+1;
+    //@if((map-has-key($widths, $currWidth))==false){
+      $widths: append($widths, $currWidth, 'comma');
+      //$widths: map-set($widths, www, $currWidth);
+      //$arr:append($arr,$j);
+
+      //map-set($map,$key,$value)
+      $arr: map-set($arr, $j, '.col-#{$name}--#{$i}-#{$y}');
+      //$arr:append(map-get($arr, $j),'.col-#{$name}--#{$i}-#{$max}');
+      //.col-#{$name}--#{$i}-#{$max}{
+      //  content:'IF!';
+      //  content-widths:$widths;
+      //  content-values: map-get($arr,2);
+      //}
+    } @else {
+      $wIndex:index($widths,$currWidth);
+      $currentVal:map-get($arr,$wIndex);
+      $arr: map-set($arr, $wIndex, $currentVal+', .col-#{$name}--#{$i}-#{$y}');
+        //.col-#{$name}--#{$i}-#{$max}{
+        //  content: length($arr);
+        //  content-values: map-get($arr,2);
+        //}
+    }
+    $currIndex:index($widths,$currWidth);
+  }
+  }
+}
+
+@for $x from 1 to length($arr)+1{
+  $a:map-deep-get($arr,$x);
+  #{$a}{
+    width:nth($widths,$x)#{%};
+  }
+}
