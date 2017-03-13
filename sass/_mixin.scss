@@ -2,11 +2,10 @@
 //@include make-micro-container($container-w-...,$padding,true) altri
 @mixin make-micro-container($containerWidth,$padding,$cond){
     .micro-container{
-        width: #{$containerWidth};
+        width: #{#{$containerWidth}};
         @if($cond==false){
         padding: 0 #{$padding};
         margin: 0 auto;
-        background-color: red;
         &:before{
             display: table;
             content: " ";
