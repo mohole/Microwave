@@ -1,6 +1,4 @@
-// out: ../dist/css/styles.css, sourcemap: false, compress: false
 //min-width media queries
-
 $min-xs-width:381px;
 $min-s-width:576px;
 $min-m-width:768px;
@@ -9,7 +7,7 @@ $min-xl-width:1200px;
 $min-xxl-width:1920px;
 
 $col-names: xxs, xs, s, m, l, xl, xxl;
-
+$container-w: 100%,100%,750px,960px,1170px,1900px;
 //width container
 $container-w-xxs:100%;
 $container-w-xs:$container-w-xxs;
@@ -20,6 +18,9 @@ $container-w-xl:1170px;
 $container-w-xxl:1900px;
 
 $max-grid-col:20;
+
+//proprietà colonne
+$padding:15px;
 
 // COLORI
 $black: #040303 !default;

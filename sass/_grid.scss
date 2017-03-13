@@ -1,0 +1,89 @@
+@function contains($list,$var) {
+    @return (false == index($list, $var));
+}
+
+@function map-set($map, $key, $value) {
+  $new: ($key: $value);
+  @return map-merge($map, $new);
+}
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+@mixin makeCols($name,$fullWidth:false){
+$j:0;
+$maxDen:20;
+$min:1;
+$widths:();
+$arr:();
+$full:();
+
+
+  @for $y from 1 to $maxDen+1{
+    @for $i from $min to $y+1{
+      $currWidth:100 / $y * $i;
+      @if((index($widths,$currWidth))==null){
+      $j:$j+1;
+        $widths: append($widths, $currWidth, 'comma');
+        $arr: map-set($arr, $j, '.col-#{$name}--#{$i}-#{$y}');
+      } @else {
+        $wIndex:index($widths,$currWidth);
+        $currentVal:map-get($arr,$wIndex);
+        $arr: map-set($arr, $wIndex, $currentVal+', .col-#{$name}--#{$i}-#{$y}');
+      }
+      $currIndex:index($widths,$currWidth);
+    }
+  }
+
+
+
+  @if($fullWidth==true){
+    @each $name in $col-names{
+      @if($name!='xxs'){
+        @for $y from 1 to $maxDen+1{
+          @for $i from $min to $y+1{
+            $j:$j+1;
+              $full: append($full, '.col-#{$name}--#{$i}-#{$y}', 'comma');
+          }
+        }
+      }
+    }
+  $emptyArr:();
+  $fullWidthArr:join($full,$emptyArr);
+
+        #{$fullWidthArr}{
+          width:100%;
+        }
+
+  } @else {
+      @for $x from 1 to length($arr)+1{
+        $a:map-deep-get($arr,$x);
+        #{$a}{
+          width:nth($widths,$x)#{%};
+        }
+      }
+  }
+}
+
+@include make-micro-container($container-w-xxs,$padding,false);
+@include make-micro-row($padding);
+@include makeCols(xxs,false);
+@include makeCols(xxs,true);
+
+$c:1;
+@each $name in $col-names{
+  @if ($name!= 'xxs'){
+    $breakpoint:'$min-#{$name}-width';
+    @media (min-width: #{$breakpoint}){
+      @include make-micro-container(nth($container-w,$c),$padding,true);
+      $c:$c+1;
+      @include makeCols($name, false);
+    }
+  }
+}

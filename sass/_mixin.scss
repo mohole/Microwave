@@ -1,0 +1,36 @@
+//@include make-micro-container($container-w-xxs,$padding,false) xxs
+//@include make-micro-container($container-w-...,$padding,true) altri
+@mixin make-micro-container($containerWidth,$padding,$cond){
+    .micro-container{
+        width: #{#{$containerWidth}};
+        @if($cond==false){
+        padding: 0 #{$padding};
+        margin: 0 auto;
+        &:before{
+            display: table;
+            content: " ";
+        };
+        &:after{
+            clear: both;
+            display: table;
+            content: " ";
+        }
+        }
+    }
+}
+//@include make-micro-row($padding);
+@mixin make-micro-row($padding){
+    .row{
+        margin-left: -#{$padding};
+        margin-right: -#{$padding};
+        &:before{
+            display: table;
+            content: " ";
+        };
+        &:after{
+            clear: both;
+            content: ' ';
+            display: table
+        }
+    }
+}

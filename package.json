@@ -10,7 +10,9 @@
   "author": "Mohole",
   "license": "MIT",
   "homepage": "https://github.com/mohole/Microwave#readme",
-  "dependencies": {},
+  "dependencies": {
+    "node-sass": "^4.5.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1"
   }
