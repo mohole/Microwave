@@ -44,6 +44,8 @@ $full:();
 
 
   @if($fullWidth==true){
+
+    //inizio ex roba commentata
     @each $name in $col-names{
       @if($name!='xxs'){
         @for $y from 1 to $maxDen+1{
@@ -58,14 +60,41 @@ $full:();
   $fullWidthArr:join($full,$emptyArr);
 
         #{$fullWidthArr}{
-          width:100%;
+          box-sizing: border-box;
+          flex-basis: 100%;
+          max-width:100%;
         }
+
+//fine ex roba commentata
+$sizes:();
+@each $name in $col-names{
+  @if($name!='xxs'){
+    $sizes:join($sizes,'.col-#{$name}--*,');
+  }
+}
+#{$sizes}{
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 100%;
+  flex-basis: 100%;
+}
+
+        //.col-xs--*,.col-s--*,.col-m--*,.col-l--*,.col-xl--*,.col-xxl--*{
+        //  width: 100%;
+        //}
 
   } @else {
       @for $x from 1 to length($arr)+1{
         $a:map-deep-get($arr,$x);
         #{$a}{
-          width:nth($widths,$x)#{%};
+          box-sizing: border-box;
+          padding-left: 15px;
+          padding-right: 15px;
+          flex-grow: 1;
+          flex: 0 0 auto;
+          max-width: nth($widths,$x)*1%;
+          flex-basis: nth($widths,$x)*1%;
         }
       }
   }
@@ -80,7 +109,7 @@ $c:1;
 @each $name in $col-names{
   @if ($name!= 'xxs'){
     $breakpoint:'$min-#{$name}-width';
-    @media (min-width: #{$breakpoint}){
+    @media (min-width: #{$breakpoint}+px){
       @include make-micro-container(nth($container-w,$c),$padding,true);
       $c:$c+1;
       @include makeCols($name, false);
