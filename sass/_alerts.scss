@@ -1,0 +1,20 @@
+.alert {
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.hot .danger{
+  background-color: nth($microwawe-palette-hot,2);
+}
+
+.hot .warning{
+  background-color: nth($microwawe-palette-hot,1);
+
+}
+
+.hot .success{
+  background-color: nth($microwawe-palette-hot,5);
+
+}
