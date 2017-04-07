@@ -23,7 +23,11 @@ $max-grid-col:20;
 $padding:15px;
 
 // COLORI
+$basecolor:#333333;
 $black: #040303 !default;
+
+
+$btn-colors: 'raw','rare','medium','well-done','burnt';
 
 $white: #ffffff !default;
 
@@ -34,39 +38,7 @@ $body-font-color: $black !default;
 
 $microwawe-palette-cold: (#E5FCC2,#9DE0AD,#45ADA8,#547980,#594F4f) !default;
 
-.cold1{
-  background-color: nth($microwawe-palette-cold,1);
-}
-.cold2{
-  background-color:nth($microwawe-palette-cold,2);
-}
-.cold3{
-  background-color:nth($microwawe-palette-cold,3);
-}
-.cold4{
-  background-color:nth($microwawe-palette-cold,4);
-}
-.cold5{
-  background-color:nth($microwawe-palette-cold,5);
-}
-
 $microwawe-palette-hot:(#F8B195,#e22438,#6C5B7B,#355C7D,#594F4f) !default;
-.hot1{
-  background-color:nth($microwawe-palette-hot,1);
-}
-.hot2{
-  background-color:nth($microwawe-palette-hot,2);
-}
-.hot3{
-  background-color:nth($microwawe-palette-hot,3);
-}
-.hot4{
-  background-color:nth($microwawe-palette-hot,4);
-}
-.hot5{
-  background-color:nth($microwawe-palette-hot,5);
-}
-
 
 //$microwawe-palette-cold: (
 //  lightgreen: #E5FCC2,
@@ -84,3 +56,12 @@ $microwawe-palette-hot:(#F8B195,#e22438,#6C5B7B,#355C7D,#594F4f) !default;
 //  blue:#355C7D,
 //  black: #594F4f,
 //) !default;
+
+
+
+
+//bottoni
+$border-radius: 2px;
+$btn-padding: 11px 14px;
+$btn-padding-l: 13px 25px;
+$btn-padding-s: 7px 10px;

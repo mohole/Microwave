@@ -1,0 +1,48 @@
+$font-l: $base-font * 1.125;
+$font-s: $base-font * 0.875;
+
+.btn-s{
+    padding: $btn-padding-s;
+    font-size: $font-s;
+}
+.btn-l{
+    padding: $btn-padding-l;
+    font-size: $font-l;
+}
+.btn{
+  border-width: 2px;
+  border-style: solid;
+  border-radius: #{$border-radius};
+  padding: #{$btn-padding};
+  font-size: #{$base-font};
+  box-sizing: border-box;
+  color: #{$black};
+}
+@mixin make-button($color,$index){
+    $color-hover: darken($color,30%);
+    $colorName:nth($btn-colors,$index);
+    .btn-#{$colorName}{
+        background-color: #{$color};
+        border-color:#{$color};
+        &:hover{
+            background-color:$color-hover;
+            border-color:$color-hover;
+        }
+    }
+    .btn-outline{
+            background-color: transparent;
+            color:#{$color};
+            &:hover{
+            background-color: transparent;
+            color: $color-hover;
+        }
+    }
+
+}
+
+
+$x:1;
+@each $color in $microwawe-palette-cold{
+  @include make-button($color,$x);
+  $x:$x+1;
+}
