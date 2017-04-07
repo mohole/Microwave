@@ -7,6 +7,11 @@
   @return map-merge($map, $new);
 }
 
+*[class^=col-]{
+  box-sizing: border-box;
+  flex-basis: 100%;
+  max-width:100%;
+}
 
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
@@ -45,25 +50,26 @@ $full:();
 
   @if($fullWidth==true){
 
-    //inizio ex roba commentata
-    @each $name in $col-names{
-      @if($name!='xxs'){
-        @for $y from 1 to $maxDen+1{
-          @for $i from $min to $y+1{
-            $j:$j+1;
-              $full: append($full, '.col-#{$name}--#{$i}-#{$y}', 'comma');
-          }
-        }
-      }
-    }
-  $emptyArr:();
-  $fullWidthArr:join($full,$emptyArr);
+//inizio ex roba commentata
 
-        #{$fullWidthArr}{
-          box-sizing: border-box;
-          flex-basis: 100%;
-          max-width:100%;
-        }
+//    @each $name in $col-names{
+//      @if($name!='xxs'){
+//        @for $y from 1 to $maxDen+1{
+//          @for $i from $min to $y+1{
+//            $j:$j+1;
+//              $full: append($full, '.col-#{$name}--#{$i}-#{$y}', 'comma');
+//          }
+//        }
+//      }
+//    }
+//  $emptyArr:();
+//  $fullWidthArr:join($full,$emptyArr);
+//
+//        #{$fullWidthArr}{
+//          box-sizing: border-box;
+//          flex-basis: 100%;
+//          max-width:100%;
+//        }
 
 //fine ex roba commentata
 $sizes:();
