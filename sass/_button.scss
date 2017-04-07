@@ -18,10 +18,22 @@ $font-s: $base-font * 0.875;
   box-sizing: border-box;
   color: #{$black};
 }
-@mixin make-button($color,$index){
-    $color-hover: darken($color,30%);
+
+.btn-outline{
+        background-color: transparent;
+        color:#{$black};
+        border-color: #{$black};
+        &:hover{
+            background-color: transparent;
+            color:#{$black};
+            border-color: #{$black};
+        }
+}
+
+@mixin make-button($color,$index, $palette){
+    $color-hover: darken($color,15%);
     $colorName:nth($btn-colors,$index);
-    .btn-#{$colorName}{
+    .#{$palette} .btn-#{$colorName}{
         background-color: #{$color};
         border-color:#{$color};
         &:hover{
@@ -29,7 +41,7 @@ $font-s: $base-font * 0.875;
             border-color:$color-hover;
         }
     }
-    .btn-outline{
+    .#{$palette} .btn-#{$colorName}.btn-outline{
             background-color: transparent;
             color:#{$color};
             &:hover{
@@ -43,6 +55,12 @@ $font-s: $base-font * 0.875;
 
 $x:1;
 @each $color in $microwawe-palette-cold{
-  @include make-button($color,$x);
+  @include make-button($color,$x, 'cold');
   $x:$x+1;
+}
+
+$y:1;
+@each $color in $microwawe-palette-hot{
+  @include make-button($color,$y, 'hot');
+  $y:$y+1;
 }

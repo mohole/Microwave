@@ -1,0 +1,165 @@
+.brand {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.menu {
+    margin: 0 auto;
+    padding: 0px 20px;
+    position: relative;
+    height: 60px;
+}
+
+body.cold .menu{
+     background-color: nth($microwawe-palette-cold,3);
+}
+
+body.hot .menu{
+     background-color: nth($microwawe-palette-hot,3);
+}
+
+.menu .list {
+    float: right;
+    list-style: none;
+    .list-item {
+        line-height: 60px;
+        margin-left: 70px;
+        float: left;
+        /* hover */
+        &:hover {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        }
+    }
+}
+
+body.cold .menu .list .list-item{
+    &:hover{
+    color: white;
+    }
+}
+
+body.hot .menu .list .list-item{
+        &:hover{
+    color: white;
+    }
+}
+
+
+.menu .list-item .list{
+  	display: none;
+  	position: absolute;
+  	left: 0;
+    top: 100%;
+  	width: 100%;
+    z-index: 2000;
+}
+
+body.cold .menu .list-item .link{
+     background-color: nth($microwawe-palette-cold,3);
+}
+
+body.hot .menu .list-item .link{
+    background-color: nth($microwawe-palette-hot,3);
+}
+
+.menu .list-item .link {
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+  	outline: none;
+  	width: 100%;
+    color: white;
+}
+
+body.cold .menu .list-item .link{
+     color: white;
+}
+
+body.hot .menu .list-item .link{
+    color: white;
+}
+
+[type="checkbox"], .toast {
+	  display: none;
+}
+
+@media screen and (max-width: #{$min-m-width - 1}px) {
+
+    .menu .list {
+		  display: none;
+    }
+
+    .toast {
+        display: block;
+        width: 40px;
+    		height: 40px;
+    		cursor: pointer;
+        position: absolute;
+        right: 20px;
+    		top: 10px;
+
+        &:after{
+            content:'';
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 7px 5px;
+        }
+    }
+
+
+    body.cold .toast:after{
+        background: white;
+        box-shadow: 0px 10px 0px white, 0px 20px 0px white;
+    }
+
+    body.hot .toast:after{
+        background: white;
+        box-shadow: 0px 10px 0px white, 0px 20px 0px white;
+    }
+
+    [type="checkbox"]:checked ~ .list {
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        right: 0px;
+        left: -40px;
+    }
+
+	.menu .link {
+		  color: white;
+	}
+
+
+	.menu .list .list-item {
+        display: block;
+        float: none;
+        display: block;
+  		position: relative;
+  		width: 100%;
+        z-index: 9999;
+        float: none;
+        margin-left: 0px;
+        border-bottom: solid 1px #0b5977;
+        text-align: left;
+        text-indent: 20px;
+        &:last-child{
+            border-bottom:  transparent;
+        }
+    }
+
+    body.hot .menu .list .list-item {
+        border-bottom-color: darken(nth($microwawe-palette-hot,3), 10%);
+    }
+
+    body.cold .menu .list .list-item {
+        border-bottom-color: darken (nth($microwawe-palette-cold,3), 10%);
+    }
+
+}
