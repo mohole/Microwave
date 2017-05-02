@@ -59,15 +59,15 @@ body.hot .menu .list .list-item{
     z-index: 2000;
 }
 
-body.cold .menu .list-item .link{
+body.cold .menu .list-item a{
      background-color: #45ADA8;
 }
 
-body.hot .menu .list-item .link{
+body.hot .menu .list-item a{
     background-color: #C06C84;
 }
 
-.menu .list-item .link {
+.menu .list-item a {
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -77,11 +77,11 @@ body.hot .menu .list-item .link{
     color: white;
 }
 
-body.cold .menu .list-item .link{
+body.cold .menu .list-item a{
      color: white;
 }
 
-body.hot .menu .list-item .link{
+body.hot .menu .list-item a{
     color: white;
 }
 
@@ -132,7 +132,7 @@ body.hot .menu .list-item .link{
         left: -40px;
     }
 
-	.menu .link {
+	.menu a {
 		  color: white;
 	}
     
@@ -163,3 +163,16 @@ body.hot .menu .list-item .link{
     }
     
 }
+/* <nav class="menu">
+
+      <a href="#" class="brand">Brand</a>
+
+      <input type="checkbox" id="toast-input"><label class="toast" for="toast-input"></label>
+
+      <ul class="list">
+        <li class="list-item"><a href="#">Link1</a></li>
+        <li class="list-item"><a href="#">Link2</a></li>
+        <li class="list-item"><a href="#">Link3</a></li>
+        <li class="list-item"><a href="#">Link4</a></li>
+      </ul>
+    </nav> */
