@@ -3,7 +3,7 @@
     color: white;
     font-weight: 900;
     font-size: 30px;
-    line-height: 40px;
+    line-height: 60px;
 }
 
 .menu {
@@ -14,11 +14,11 @@
 }
 
 body.cold .menu{
-     background-color: nth($microwawe-palette-cold,3);
+     background-color: #45ADA8;
 }
 
 body.hot .menu{
-     background-color: nth($microwawe-palette-hot,3);
+     background-color: #C06C84;
 }
 
 .menu .list {
@@ -59,15 +59,15 @@ body.hot .menu .list .list-item{
     z-index: 2000;
 }
 
-body.cold .menu .list-item .link{
-     background-color: nth($microwawe-palette-cold,3);
+body.cold .menu .list-item a{
+     background-color: #45ADA8;
 }
 
-body.hot .menu .list-item .link{
-    background-color: nth($microwawe-palette-hot,3);
+body.hot .menu .list-item a{
+    background-color: #C06C84;
 }
 
-.menu .list-item .link {
+.menu .list-item a {
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -77,11 +77,11 @@ body.hot .menu .list-item .link{
     color: white;
 }
 
-body.cold .menu .list-item .link{
+body.cold .menu .list-item a{
      color: white;
 }
 
-body.hot .menu .list-item .link{
+body.hot .menu .list-item a{
     color: white;
 }
 
@@ -98,11 +98,11 @@ body.hot .menu .list-item .link{
     .toast {
         display: block;
         width: 40px;
-    		height: 40px;
-    		cursor: pointer;
+  		height: 40px;
+  		cursor: pointer;
         position: absolute;
         right: 20px;
-    		top: 10px;
+  		top: 10px;
 
         &:after{
             content:'';
@@ -121,7 +121,7 @@ body.hot .menu .list-item .link{
 
     body.hot .toast:after{
         background: white;
-        box-shadow: 0px 10px 0px white, 0px 20px 0px white;
+       box-shadow: 0px 10px 0px white, 0px 20px 0px white;
     }
 
     [type="checkbox"]:checked ~ .list {
@@ -132,7 +132,7 @@ body.hot .menu .list-item .link{
         left: -40px;
     }
 
-	.menu .link {
+	.menu a {
 		  color: white;
 	}
 
@@ -155,11 +155,21 @@ body.hot .menu .list-item .link{
     }
 
     body.hot .menu .list .list-item {
-        border-bottom-color: darken(nth($microwawe-palette-hot,3), 10%);
+        border-bottom-color: darken(#C06C84, 10%);
     }
 
     body.cold .menu .list .list-item {
-        border-bottom-color: darken (nth($microwawe-palette-cold,3), 10%);
+        border-bottom-color: darken(#45ADA8, 10%);
     }
 
 }
+/* <nav class="menu">
+      <a href="#" class="brand">Brand</a>
+      <input type="checkbox" id="toast-input"><label class="toast" for="toast-input"></label>
+      <ul class="list">
+        <li class="list-item"><a href="#">Link1</a></li>
+        <li class="list-item"><a href="#">Link2</a></li>
+        <li class="list-item"><a href="#">Link3</a></li>
+        <li class="list-item"><a href="#">Link4</a></li>
+      </ul>
+    </nav> */
